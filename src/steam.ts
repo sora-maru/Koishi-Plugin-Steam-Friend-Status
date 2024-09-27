@@ -233,7 +233,7 @@ export async function getFriendStatusImg(ctx:Context, userData:SteamUserInfo, bo
     
     const page = await ctx.puppeteer.page()
     await page.setViewport({width:227,height:224 + userData.response.players.length * 46})
-    await page.goto(url)
+    await page.goto(`file://${url}`)
     await page.evaluate((headshotfileName,botname,gamingUsers,onlineUsers,offlineUsers,steamstatus)=>{
         var bot = document.getElementsByClassName('bot')[0]
         var botHeadshot = bot.querySelector('img')
